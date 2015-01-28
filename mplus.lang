@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+  This file contains the GtkSourceView language
+  definition for Mplus. It was created using the
+  tutorial available at 
+  <https://developer.gnome.org/gtksourceview/stable/lang-tutorial.html>
+
+-->
+
+<language id="mplus" _name="Mplus" version="2.0" _section="Scientific">
+  <metadata>
+    <property name="mimetypes">text/x-mplus</property>
+    <property name="globs">*.inp;*.out</property>
+    <property name="line-comment-start">!</property>
+  </metadata>
+
+  <styles>
+    <style id="comment" _name="Comment" map-to="def:comment"/>
+    <style id="section" _name="Section" map-to="def:keyword"/>
+  </styles>
+
+  <definitions>
+    
+    <context id="mplus">
+      <include>
+        <context id="comment" end-at-line-end="true" style-ref="comment">
+          <start>!</start>
+        </context>
+
+        <context id="section" style-ref="section">
+          <suffix>:</suffix>
+          <keyword>titl(e)?</keyword>
+          <keyword>data</keyword>
+          <keyword>vari(able)?</keyword>
+          <keyword>defi(ne)?</keyword>
+          <keyword>anal(ysis)?</keyword>
+          <keyword>mode(l)?</keyword>
+          <keyword>outp(ut)?</keyword>
+          <keyword>save(data)?</keyword>
+          <keyword>plot</keyword>
+          <keyword>mont(ecarlo)?</keyword>
+        </context>
+      </include>
+    </context>
+    
+  </definitions>
+</language>
