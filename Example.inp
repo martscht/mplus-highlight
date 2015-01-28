@@ -1,0 +1,27 @@
+Title: Example Input File
+
+Data: 
+  file=some_data;
+  listwise=ON;
+
+Variable:
+  names=y1-y10 c;
+  cluster=c;
+
+Analysis:
+  type=twolevel;
+
+Model:
+
+%within%
+  w1 by y1-y5;
+  w2 by y6-y10;
+
+
+%between%
+  b1 by y1-y10;
+
+  [y1-y10] (alp1);
+
+
+Output: STDYX;
