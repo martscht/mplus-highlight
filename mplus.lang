@@ -17,8 +17,12 @@
 
   <styles>
     <style id="comment" _name="Comment" map-to="def:comment"/>
-    <style id="section" _name="Section" map-to="def:keyword"/>
+    <style id="command" _name="Command" map-to="def:keyword"/>
+    <style id="option" _name="Option" map-to="def:function"/>
+    <style id="submodel" _name="Submodel" map-to="def:function"/>
   </styles>
+
+  <default-regex-options case-sensitive="false"/>
 
   <definitions>
     
@@ -28,19 +32,150 @@
           <start>!</start>
         </context>
 
-        <context id="section" style-ref="section">
-          <suffix>:</suffix>
-          <keyword>titl(e)?</keyword>
-          <keyword>data</keyword>
-          <keyword>vari(able)?</keyword>
-          <keyword>defi(ne)?</keyword>
-          <keyword>anal(ysis)?</keyword>
-          <keyword>mode(l)?</keyword>
-          <keyword>outp(ut)?</keyword>
-          <keyword>save(data)?</keyword>
-          <keyword>plot</keyword>
-          <keyword>mont(ecarlo)?</keyword>
+        <context id="command" style-ref="command">
+          <suffix>\s?:</suffix>
+          <keyword>^titl(e)?</keyword>
+          <keyword>^data(\simputation)?</keyword>
+          <keyword>^vari(a(b(le?)?)?)?</keyword>
+          <keyword>^defi(ne?)?</keyword>
+          <keyword>^anal(y(s(is?)?)?)?</keyword>
+          <keyword>^mode(l)?(\spopulation|\scoverage|\smissing)?(-\w)?</keyword>
+          <keyword>^outp(ut?)?</keyword>
+          <keyword>^save(d(a(ta?)?)?)?</keyword>
+          <keyword>^plot</keyword>
+          <keyword>^mont(e(c(a(r(lo?)?)?)?)?)?</keyword>
         </context>
+
+        <context id="option" style-ref="option">
+          <suffix>\s?(=|is)</suffix>
+
+          <!-- options for the data command -->
+          <keyword>file</keyword>
+          <keyword>form(at)?</keyword>
+          <keyword>type</keyword>
+          <keyword>nobs(ervations)?</keyword>
+          <keyword>ngro(ups)?</keyword>
+          <keyword>list(wise)?</keyword>
+          <keyword>swma(trix)?</keyword>
+          <keyword>vari(ances)?</keyword>
+
+          <!-- options for the variable command -->
+          <keyword>name(s)?</keyword>
+          <keyword>useo(bservations)?</keyword>
+          <keyword>usev(ariables)?</keyword>
+          <keyword>miss(ing)?</keyword>
+          <keyword>cens(ored)?</keyword>
+          <keyword>cate(gorical)?</keyword>
+          <keyword>nomi(nal)?</keyword>
+          <keyword>coun(t)?</keyword>
+          <keyword>grou(ping)?</keyword>
+          <keyword>idva(riable)?</keyword>
+          <keyword>weig(ht)?</keyword>
+          <keyword>clus(ter)?</keyword>
+          <keyword>stra(tification)?</keyword>
+          <keyword>cent(ering)?</keyword>
+          <keyword>tsco(res)?</keyword>
+          <keyword>auxi(liary)?</keyword>
+          <keyword>clas(ses)?</keyword>
+          <keyword>know(nclass)?</keyword>
+          <keyword>trai(ning)?</keyword>
+          <keyword>with(in)?</keyword>
+          <keyword>betw(een)?</keyword>
+          <keyword>patt(ern)?</keyword>
+          <keyword>coho(rt)?</keyword>
+          <keyword>copa(ttern)?</keyword>
+          <keyword>cohr(ecode)?</keyword>
+          <keyword>time(measures)?</keyword>
+          <keyword>tnam(es)?</keyword>
+
+          <!-- options for the analysis command -->
+          <keyword>type</keyword>
+          <keyword>esti(mator)?</keyword>
+          <keyword>para(meterization)?</keyword>
+          <keyword>chol(esky)?</keyword>
+          <keyword>algo(rithm)?</keyword>
+          <keyword>inte(gration)?</keyword>
+          <keyword>mcse(ed)?</keyword>
+          <keyword>adap(tive)?</keyword>
+          <keyword>info(rmation)?</keyword>
+          <keyword>boot(strap)?</keyword>
+          <keyword>diff(test)?</keyword>
+          <keyword>star(ts)?</keyword>
+          <keyword>stit(erations)?</keyword>
+          <keyword>stco(nvergence)?</keyword>
+          <keyword>stsc(ale)?</keyword>
+          <keyword>stse(ed)?</keyword>
+          <keyword>opts(eed)?</keyword>
+          <keyword>cove(rage)?</keyword>
+          <keyword>iter(ations)?</keyword>
+          <keyword>sdit(erations)?</keyword>
+          <keyword>h1it(erations)?</keyword>
+          <keyword>mite(rations)?</keyword>
+          <keyword>m[uc]it(erations)?</keyword>
+          <keyword>conv(ergence)?</keyword>
+          <keyword>h1co(nvergence)?</keyword>
+          <keyword>logc(riterion)?</keyword>
+          <keyword>mcon(vergence)?</keyword>
+          <keyword>m[uc]co(nvergence)?</keyword>
+          <keyword>mix[uc]</keyword>
+          <keyword>logh(igh)?</keyword>
+          <keyword>logl(ow)?</keyword>
+          <keyword>ucel(lsize)?</keyword>
+          <keyword>vari(ance)?</keyword>
+          <keyword>matr(ix)?</keyword>
+
+          <!-- options for the savedata command -->
+          <keyword>file</keyword>
+          <keyword>samp(le)?</keyword>
+          <keyword>sibg</keyword>
+          <keyword>resu(lts)?</keyword>
+          <keyword>esti(mates)?</keyword>
+          <keyword>diff(test)?</keyword>
+          <keyword>tech[34]</keyword>
+          <keyword>form(at)?</keyword>
+          <keyword>type</keyword>
+          <keyword>reco(rdlength)?</keyword>
+          <keyword>save</keyword>
+
+          <!-- options for the plot command -->
+          <keyword>type</keyword>
+          <keyword>seri(es)</keyword>
+
+          <!-- options for the montecarlo command -->
+          <keyword>name(s)?</keyword>
+          <keyword>nobs(ervations)?</keyword>
+          <keyword>ngro(ups)?</keyword>
+          <keyword>nrep(s)?</keyword>
+          <keyword>seed</keyword>
+          <keyword>gene(rate)?</keyword>
+          <keyword>cutp(oints)?</keyword>
+          <keyword>genc(lasses)?</keyword>
+          <keyword>ncsi(zes)?</keyword>
+          <keyword>csiz(es)?</keyword>
+          <keyword>patm(iss)?</keyword>
+          <keyword>patp(robs)?</keyword>
+          <keyword>miss(ing)?</keyword>
+          <keyword>cens(ored)?</keyword>
+          <keyword>cate(gorical)?</keyword>
+          <keyword>nomi(nal)?</keyword>
+          <keyword>coun(t)?</keyword>
+          <keyword>clas(ses)?</keyword>
+          <keyword>tsco(res)?</keyword>
+          <keyword>with(in)?</keyword>
+          <keyword>betw(een)?</keyword>
+          <keyword>popu(lation)?</keyword>
+          <keyword>cove(rage)?</keyword>
+          <keyword>reps(ave)?</keyword>
+          <keyword>save</keyword>
+          <keyword>resu(lts)?</keyword>
+
+        </context>
+
+        <context id="submodel" style-ref="submodel">
+          <!-- submodels in the model command -->
+          <match>^%[\w#]+%$</match>
+        </context>
+
       </include>
     </context>
     
