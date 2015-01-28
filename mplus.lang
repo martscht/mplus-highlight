@@ -33,17 +33,18 @@
         </context>
 
         <context id="command" style-ref="command">
+          <prefix>^\s*</prefix>
           <suffix>\s?:</suffix>
-          <keyword>^titl(e)?</keyword>
-          <keyword>^data(\simputation)?</keyword>
-          <keyword>^vari(a(b(le?)?)?)?</keyword>
-          <keyword>^defi(ne?)?</keyword>
-          <keyword>^anal(y(s(is?)?)?)?</keyword>
-          <keyword>^mode(l)?(\spopulation|\scoverage|\smissing)?(-\w)?</keyword>
-          <keyword>^outp(ut?)?</keyword>
-          <keyword>^save(d(a(ta?)?)?)?</keyword>
-          <keyword>^plot</keyword>
-          <keyword>^mont(e(c(a(r(lo?)?)?)?)?)?</keyword>
+          <keyword>titl(e)?</keyword>
+          <keyword>data(\simputation)?</keyword>
+          <keyword>vari(a(b(le?)?)?)?</keyword>
+          <keyword>defi(ne?)?</keyword>
+          <keyword>anal(y(s(is?)?)?)?</keyword>
+          <keyword>mode(l)?(\spopulation|\scoverage|\smissing)?(-\w)?</keyword>
+          <keyword>outp(ut?)?</keyword>
+          <keyword>save(d(a(ta?)?)?)?</keyword>
+          <keyword>plot</keyword>
+          <keyword>mont(e(c(a(r(lo?)?)?)?)?)?</keyword>
         </context>
 
         <context id="option" style-ref="option">
@@ -173,7 +174,7 @@
 
         <context id="submodel" style-ref="submodel">
           <!-- submodels in the model command -->
-          <match>^%[\w#]+%$</match>
+          <match>^\s*%[\w#]+%$</match>
         </context>
 
       </include>
