@@ -1,0 +1,1 @@
+The mplus.lang file contains a very simple GtkSourceView language definition. It is intended to allow for syntax highlighting when using gedit to write Mplus input files and read Mplus output files. For more info on Mplus visit <http://statmodel.com/>
